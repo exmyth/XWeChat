@@ -18,7 +18,7 @@
         android:background="@drawable/tab_bg"
         android:orientation="horizontal" >
 
-        <com.exmyth.wechat.tab.ChangeColorIconWithText
+        <com.exmyth.wechat.tab.activity.ChangeColorIconWithText
             android:id="@+id/id_indicator_one"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -29,7 +29,7 @@
             exmyth:text_size="12sp"
             exmyth:color="#ff45c01a" />
 
-        <com.exmyth.wechat.tab.ChangeColorIconWithText
+        <com.exmyth.wechat.tab.activity.ChangeColorIconWithText
             android:id="@+id/id_indicator_two"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -40,7 +40,7 @@
             exmyth:text_size="12sp"
             exmyth:color="#ff45c01a" />
 
-        <com.exmyth.wechat.tab.ChangeColorIconWithText
+        <com.exmyth.wechat.tab.activity.ChangeColorIconWithText
             android:id="@+id/id_indicator_three"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -51,7 +51,7 @@
             exmyth:text_size="12sp"
             exmyth:color="#ff45c01a" />
 
-        <com.exmyth.wechat.tab.ChangeColorIconWithText
+        <com.exmyth.wechat.tab.activity.ChangeColorIconWithText
             android:id="@+id/id_indicator_four"
             android:layout_width="0dp"
             android:layout_height="fill_parent"

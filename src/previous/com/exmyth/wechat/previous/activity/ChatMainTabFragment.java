@@ -1,4 +1,7 @@
-package com.exmyth.wechat;
+package com.exmyth.wechat.previous.activity;
+
+import com.exmyth.wechat.R;
+import com.exmyth.wechat.R.layout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +15,6 @@ public class ChatMainTabFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
 	{
-		return inflater.inflate(R.layout.tab01, container, false);
+		return inflater.inflate(R.layout.previous_tab01, container, false);
 	}
 }

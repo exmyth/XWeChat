@@ -1,4 +1,4 @@
-package com.exmyth.wechat.tab;
+package com.exmyth.wechat.tab.activity;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -36,7 +36,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_tab);
+		setContentView(R.layout.tab_activity_main);
 		setOverflowButtonAlways();
 		getActionBar().setDisplayShowHomeEnabled(false);//remove actionbar icon
 
@@ -110,7 +110,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.tab_main, menu);
 		return true;
 	}
 

@@ -1,4 +1,4 @@
-package com.exmyth.wechat.tab;
+package com.exmyth.wechat.tab.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;

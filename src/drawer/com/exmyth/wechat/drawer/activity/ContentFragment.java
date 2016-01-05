@@ -1,4 +1,4 @@
-package com.exmyth.wechat.drawer;
+package com.exmyth.wechat.drawer.activity;
 
 import com.exmyth.wechat.R;
 
@@ -19,7 +19,7 @@ public class ContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-       View view =  inflater.inflate(R.layout.activity_main_drawaer_fragment, container, false);
+       View view =  inflater.inflate(R.layout.drawaer_activity_main_fragment, container, false);
         textView = (TextView) view.findViewById(R.id.textView);
         String arg = (String) getArguments().getString("text");
         textView.setText(arg);

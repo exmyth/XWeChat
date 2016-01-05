@@ -1,4 +1,4 @@
-package com.exmyth.wechat.tab;
+package com.exmyth.wechat.tab.activity;
 
 import com.exmyth.wechat.R;
 

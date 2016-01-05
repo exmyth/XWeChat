@@ -1,4 +1,4 @@
-package com.exmyth.wechat.drawer;
+package com.exmyth.wechat.drawer.activity;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_drawaer);
+		setContentView(R.layout.drawaer_activity_main);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
 
 		drawerList = (ListView) findViewById(R.id.leftdrawer);

@@ -1,7 +1,10 @@
-package com.exmyth.wechat;
+package com.exmyth.wechat.previous.activity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.exmyth.wechat.R;
+import com.jauker.widget.BadgeView;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,8 +21,6 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.jauker.widget.BadgeView;
 
 public class MainActivity extends FragmentActivity
 {
@@ -43,7 +44,7 @@ public class MainActivity extends FragmentActivity
 	{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.previous_activity_main);
 
 		initTabLine();
 		initView();
