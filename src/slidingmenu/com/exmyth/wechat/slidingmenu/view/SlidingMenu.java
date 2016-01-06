@@ -24,6 +24,8 @@ public class SlidingMenu extends HorizontalScrollView
 	private int mMenuRightPadding = 50;
 
 	private boolean once;
+	
+	private boolean isOpen;
 
 	/**
 	 * 未使用自定义属性时，调用
@@ -116,12 +118,51 @@ public class SlidingMenu extends HorizontalScrollView
 			if (scrollX >= mMenuWidth / 2)
 			{
 				this.smoothScrollTo(mMenuWidth, 0);
+				isOpen = false;
 			} else
 			{
 				this.smoothScrollTo(0, 0);
+				isOpen = true;
 			}
 			return true;
 		}
 		return super.onTouchEvent(ev);
+	}
+	
+	/**
+	 * 打开菜单
+	 */
+	public void openMenu()
+	{
+		if (isOpen)
+			return;
+		this.smoothScrollTo(0, 0);
+		isOpen = true;
+	}
+
+	/**
+	 * 关闭菜单
+	 */
+	public void closeMenu()
+	{
+		if (isOpen)
+		{
+			this.smoothScrollTo(mMenuWidth, 0);
+			isOpen = false;
+		}
+	}
+
+	/**
+	 * 切换菜单状态
+	 */
+	public void toggle()
+	{
+		if (isOpen)
+		{
+			closeMenu();
+		} else
+		{
+			openMenu();
+		}
 	}
 }
