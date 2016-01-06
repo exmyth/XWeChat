@@ -12,5 +12,11 @@
         <attr name="text"></attr>
         <attr name="text_size"></attr>
     </declare-styleable>
+    
+    <attr name="rightPadding" format="dimension" />
+
+    <declare-styleable name="SlidingMenu">
+        <attr name="rightPadding" />
+    </declare-styleable>
 
 </resources>

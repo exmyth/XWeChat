@@ -1,12 +1,14 @@
 package com.exmyth.wechat.slidingmenu.view;
 
+import com.exmyth.wechat.R;
+import com.exmyth.wechat.util.ScreenUtils;
+
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
@@ -44,14 +46,26 @@ public class SlidingMenu extends HorizontalScrollView
 	public SlidingMenu(Context context, AttributeSet attrs, int defStyle)
 	{
 		super(context, attrs, defStyle);
+		mScreenWidth = ScreenUtils.getScreenWidth(context);
 
-		mMenuRightPadding = (int) TypedValue.applyDimension(
-				TypedValue.COMPLEX_UNIT_DIP, 50, context
-				.getResources().getDisplayMetrics());
-		WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-		DisplayMetrics outMetrics = new DisplayMetrics();
-		wm.getDefaultDisplay().getMetrics(outMetrics);
-		mScreenWidth = outMetrics.widthPixels;
+		TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
+				R.styleable.SlidingMenu, defStyle, 0);
+		int n = a.getIndexCount();
+		for (int i = 0; i < n; i++)
+		{
+			int attr = a.getIndex(i);
+			switch (attr)
+			{
+			case R.styleable.SlidingMenu_rightPadding:
+				// 默认50
+				mMenuRightPadding = a.getDimensionPixelSize(attr,
+						(int) TypedValue.applyDimension(
+								TypedValue.COMPLEX_UNIT_DIP, 50f,
+								getResources().getDisplayMetrics()));// 默认为10DP
+				break;
+			}
+		}
+		a.recycle();
 	}
 
 	public SlidingMenu(Context context)

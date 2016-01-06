@@ -1,27 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.exmyth.wechat.slidingmenu.view.SlidingMenu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:exmyth="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/id_menu"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/img_frame_background"
+    exmyth:rightPadding="100dp" >
 
-    <com.exmyth.wechat.slidingmenu.view.SlidingMenu
-        android:id="@+id/id_menu"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/img_frame_background" >
+        android:orientation="horizontal" >
+
+        <include layout="@layout/slidingmenu_left_menu" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal" >
-
-            <include layout="@layout/slidingmenu_left_menu" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/qq" >
-            </LinearLayout>
+            android:background="@drawable/qq" >
         </LinearLayout>
-    </com.exmyth.wechat.slidingmenu.view.SlidingMenu>
+    </LinearLayout>
 
-</RelativeLayout>
+</com.exmyth.wechat.slidingmenu.view.SlidingMenu>
