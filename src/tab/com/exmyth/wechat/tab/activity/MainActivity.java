@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.exmyth.wechat.R;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 
 	private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

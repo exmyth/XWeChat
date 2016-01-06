@@ -2,6 +2,7 @@ package com.exmyth.wechat.slidingmenu.view;
 
 import com.exmyth.wechat.R;
 import com.exmyth.wechat.util.ScreenUtils;
+import com.nineoldandroids.view.ViewHelper;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -164,5 +165,13 @@ public class SlidingMenu extends HorizontalScrollView
 		{
 			openMenu();
 		}
+	}
+	
+	@Override
+	protected void onScrollChanged(int l, int t, int oldl, int oldt)
+	{
+		super.onScrollChanged(l, t, oldl, oldt);
+		float scale = l * 1.0f / mMenuWidth;
+		ViewHelper.setTranslationX(mMenu, mMenuWidth * scale);
 	}
 }
