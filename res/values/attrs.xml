@@ -12,11 +12,22 @@
         <attr name="text"></attr>
         <attr name="text_size"></attr>
     </declare-styleable>
-    
+
     <attr name="rightPadding" format="dimension" />
 
     <declare-styleable name="SlidingMenu">
         <attr name="rightPadding" />
+    </declare-styleable>
+    <declare-styleable name="NavigationBar">
+        <attr name="titleText" format="string"></attr>
+        <attr name="titleTextSize" format="dimension"></attr>
+        <attr name="titleTextColor" format="color" />
+        <attr name="leftTextColor" format="color" />
+        <attr name="leftText" format="string" />
+        <attr name="leftBackground" format="color|reference" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="rightText" format="string" />
+        <attr name="rightBackground" format="color|reference" />
     </declare-styleable>
 
 </resources>

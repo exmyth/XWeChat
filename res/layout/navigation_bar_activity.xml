@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.exmyth.wechat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.exmyth.wechat.view.NavigationBar
+        android:id="@+id/id_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:leftBackground="@drawable/navigation_bar_bg"
+        app:leftText="Back"
+        app:leftTextColor="#FFFFFF"
+        app:rightText="More"
+        app:rightBackground="@drawable/navigation_bar_bg"
+        app:rightTextColor="#FFFFFF"
+        app:titleText="Title"
+        app:titleTextSize="12sp"
+        app:titleTextColor="#000000"
+         />
+
+</LinearLayout>
