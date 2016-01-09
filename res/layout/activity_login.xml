@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_8" >
+
+        <LinearLayout style="@style/item_input_container" >
+
+            <AutoCompleteTextView
+                android:id="@+id/et_username"
+                style="@style/item_input_edittext"
+                android:hint="@string/hint_username"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+
+            <ImageView
+                android:id="@+id/iv_clear_username"
+                style="@style/item_input_clear"
+                android:contentDescription="@null"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/item_input_container"
+            android:layout_marginTop="@dimen/space_16" >
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/item_input_edittext"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:id="@+id/iv_clear_password"
+                style="@style/item_input_clear"
+                android:contentDescription="@null"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/button_common_blue"
+            android:layout_marginTop="30dp"
+            android:text="@string/login" />
+    </LinearLayout>
+
+</ScrollView>

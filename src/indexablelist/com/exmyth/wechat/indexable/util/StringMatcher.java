@@ -1,11 +1,11 @@
 package com.exmyth.wechat.indexable.util;
 
-import com.exmyth.wechat.util.StringUtil;
+import com.exmyth.wechat.util.StringUtils;
 
 public class StringMatcher {
 
 	public static boolean match(String value, String keyword) {
-		if(StringUtil.isEmpty(value) || StringUtil.isEmpty(keyword)){
+		if(StringUtils.isEmpty(value) || StringUtils.isEmpty(keyword)){
 			return false;
 		}
 		if(keyword.length() > value.length()){
