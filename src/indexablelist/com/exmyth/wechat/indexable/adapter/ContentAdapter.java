@@ -27,7 +27,7 @@ public class ContentAdapter extends ArrayAdapter<String> implements SectionIndex
 
 	@Override
 	public int getPositionForSection(int section) {
-		for(int i = section; i >=0; i++){
+		for(int i = section; i >=0; i--){
 			for(int j = 0; j < getCount(); j++){
 				if(i == 0){//查询数字
 					for(int k = 0; k <10; k++){
@@ -49,7 +49,6 @@ public class ContentAdapter extends ArrayAdapter<String> implements SectionIndex
 
 	@Override
 	public int getSectionForPosition(int position) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

@@ -1,6 +1,6 @@
 package com.exmyth.wechat.indexable.view;
 
-import com.exmyth.wechat.indexable.widget.IndexSroller;
+import com.exmyth.wechat.indexable.widget.IndexScroller;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -14,23 +14,20 @@ public class IndexableListView extends ListView {
 
 	private boolean mIsFastScrollEnabled;
 	
-	private IndexSroller mScroller = null;
+	private IndexScroller mScroller = null;
 	
 	private GestureDetector mGestureDetector;
 
 	public IndexableListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	public IndexableListView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		// TODO Auto-generated constructor stub
+		this(context, attrs,0);
 	}
 
 	public IndexableListView(Context context) {
-		super(context);
-		// TODO Auto-generated constructor stub
+		this(context,null);
 	}
 
 	public boolean isFastScrollEnabled() {
@@ -42,7 +39,7 @@ public class IndexableListView extends ListView {
 		mIsFastScrollEnabled = enabled;
 		if(mIsFastScrollEnabled){
 			if(mScroller == null){
-				mScroller = new IndexSroller(getContext(),this);
+				mScroller = new IndexScroller(getContext(),this);
 			}
 		}
 		else{
@@ -97,5 +94,13 @@ public class IndexableListView extends ListView {
 		if(mScroller != null){
 			mScroller.onSizeChanged(w,h,oldw,oldh);
 		}
+	}
+	
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		if(mScroller.contains(ev.getX(), ev.getY())){
+			return true;
+		}
+		return super.onInterceptTouchEvent(ev);
 	}
 }

@@ -23,11 +23,11 @@ public class IndexableListAcitity extends Activity{
 		setContentView(R.layout.indexable_list_activity_main);
 		context = this;
 		initData();
-		adapter = new ContentAdapter(context, android.R.layout.simple_list_item_1, mItems);
 		initView();
 	}
 
 	private void initView() {
+		adapter = new ContentAdapter(context, android.R.layout.simple_list_item_1, mItems);
 		mListView = (ListView)findViewById(R.id.id_list);
 		mListView.setAdapter(adapter);
 		mListView.setFastScrollEnabled(true);
@@ -36,20 +36,26 @@ public class IndexableListAcitity extends Activity{
 	private void initData() {
 		mItems = new ArrayList<String>();
 		
-		mItems.add("123456");
-		mItems.add("A 123456");
-		mItems.add("B 123456");
-		mItems.add("C 123456");
-		mItems.add("D 123456");
-		mItems.add("E 123456");
-		mItems.add("F 123456");
-		mItems.add("G 123456");
-		mItems.add("O 123456");
-		mItems.add("P 123456");
-		mItems.add("Q 123456");
-		mItems.add("X 123456");
-		mItems.add("Y 123456");
-		mItems.add("Z 123456");
+		mItems.add("Diary of a Wimpy Kid 6: Cabin Fever");
+        mItems.add("Steve Jobs");
+        mItems.add("Inheritance (The Inheritance Cycle)");
+        mItems.add("11/22/63: A Novel");
+        mItems.add("The Hunger Games");
+        mItems.add("The LEGO Ideas Book");
+        mItems.add("Explosive Eighteen: A Stephanie Plum Novel");
+        mItems.add("Catching Fire (The Second Book of the Hunger Games)");
+        mItems.add("Elder Scrolls V: Skyrim: Prima Official Game Guide");
+        mItems.add("Death Comes to Pemberley");
+        mItems.add("Diary of a Wimpy Kid 6: Cabin Fever");
+        mItems.add("Steve Jobs");
+        mItems.add("Inheritance (The Inheritance Cycle)");
+        mItems.add("11/22/63: A Novel");
+        mItems.add("The Hunger Games");
+        mItems.add("The LEGO Ideas Book");
+        mItems.add("Explosive Eighteen: A Stephanie Plum Novel");
+        mItems.add("Catching Fire (The Second Book of the Hunger Games)");
+        mItems.add("Elder Scrolls V: Skyrim: Prima Official Game Guide");
+        mItems.add("Death Comes to Pemberley");
 		
 		Collections.sort(mItems);
 	}
