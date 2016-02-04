@@ -2,6 +2,7 @@ package com.exmyth.wechat.refresh.view;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import com.exmyth.wechat.R;
 
@@ -20,42 +21,36 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class LoadListView extends ListView implements OnScrollListener {
-	View footer;// 底部布局；
-	int totalItemCount;// 总数量；
-	int lastVisibleItem;// 最后一个可见的item；
-	boolean isLoading;// 正在加载；
-	ILoadListener iLoadListener;
+public class PullRefreshListView extends ListView implements OnScrollListener {
+	private View footer;// 底部布局；
+	private int totalItemCount;// 总数量；
+	private int lastVisibleItem;// 最后一个可见的item；
+	private boolean isLoading;// 正在加载；
 	
-	View header;// 顶部布局文件；
-	int headerHeight;// 顶部布局文件的高度；
-	int firstVisibleItem;// 当前第一个可见的item的位置；
-	boolean isRemark;// 标记，当前是在listview最顶端摁下的；
-	int startY;// 摁下时的Y值；
+	private View header;// 顶部布局文件；
+	private int headerHeight;// 顶部布局文件的高度；
+	private int firstVisibleItem;// 当前第一个可见的item的位置；
+	private boolean isRemark;// 标记，当前是在listview最顶端摁下的；
+	private int startY;// 摁下时的Y值；
 
-	int state;// 当前的状态；
-	final int NONE = 0;// 正常状态；
-	final int PULL = 1;// 提示下拉状态；
-	final int RELESE = 2;// 提示释放状态；
-	final int REFLASHING = 3;// 刷新状态；
-	int scrollState;// listview 当前滚动状态；
-	IReflashListener iReflashListener;//刷新数据的接口
+	private int state;// 当前的状态；
+	private final int NONE = 0;// 正常状态；
+	private final int PULL = 1;// 提示下拉状态；
+	private final int RELESE = 2;// 提示释放状态；
+	private final int REFLASHING = 3;// 刷新状态；
+	private int scrollState;// listview 当前滚动状态；
+	private IRefreshListener iRefreshListener;//刷新数据的接口
 	
-	public LoadListView(Context context) {
-		super(context);
-		// TODO Auto-generated constructor stub
-		initView(context);
+	public PullRefreshListView(Context context) {
+		this(context,null);
 	}
 
-	public LoadListView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		// TODO Auto-generated constructor stub
-		initView(context);
+	public PullRefreshListView(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
 	}
 
-	public LoadListView(Context context, AttributeSet attrs, int defStyle) {
+	public PullRefreshListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 		initView(context);
 	}
 
@@ -68,7 +63,7 @@ public class LoadListView extends ListView implements OnScrollListener {
 		LayoutInflater inflater = LayoutInflater.from(context);
 		footer = inflater.inflate(R.layout.refresh_footer_layout, null);
 		footer.findViewById(R.id.load_layout).setVisibility(View.GONE);
-		header = inflater.inflate(R.layout.header_layout, null);
+		header = inflater.inflate(R.layout.refresh_header_layout, null);
 		
 		measureView(header);
 		headerHeight = header.getMeasuredHeight();
@@ -117,10 +112,9 @@ public class LoadListView extends ListView implements OnScrollListener {
 	@Override
 	public void onScroll(AbsListView view, int firstVisibleItem,
 			int visibleItemCount, int totalItemCount) {
-		// TODO Auto-generated method stub
+		this.firstVisibleItem = firstVisibleItem;
 		this.lastVisibleItem = firstVisibleItem + visibleItemCount;
 		this.totalItemCount = totalItemCount;
-		this.firstVisibleItem = firstVisibleItem;
 	}
 
 	@Override
@@ -134,37 +128,36 @@ public class LoadListView extends ListView implements OnScrollListener {
 				footer.findViewById(R.id.load_layout).setVisibility(View.VISIBLE);
 //				setSelection(getBottom());
 				// 加载更多
-				iLoadListener.onLoad();
+				iRefreshListener.onPullUp();
 			}
 		}
 	}
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
 		switch (ev.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			if (firstVisibleItem == 0) {
-				isRemark = true;
-				startY = (int) ev.getY();
-			}
-			break;
-
-		case MotionEvent.ACTION_MOVE:
-			onMove(ev);
-			break;
-		case MotionEvent.ACTION_UP:
-			if (state == RELESE) {
-				state = REFLASHING;
-				// 加载最新数据；
-				reflashViewByState();
-				iReflashListener.onReflash();
-			} else if (state == PULL) {
-				state = NONE; 
-				isRemark = false;
-				reflashViewByState();
-			}
-			break;
+			case MotionEvent.ACTION_DOWN:
+				if (firstVisibleItem == 0) {
+					isRemark = true;
+					startY = (int) ev.getY();
+				}
+				break;
+	
+			case MotionEvent.ACTION_MOVE:
+				onMove(ev);
+				break;
+			case MotionEvent.ACTION_UP:
+				if (state == RELESE) {
+					state = REFLASHING;
+					// 加载最新数据；
+					reflashViewByState();
+					iRefreshListener.onPullDown();
+				} else if (state == PULL) {
+					state = NONE; 
+					isRemark = false;
+					reflashViewByState();
+				}
+				break;
 		}
 		return super.onTouchEvent(ev);
 	}
@@ -277,28 +270,21 @@ public class LoadListView extends ListView implements OnScrollListener {
 		reflashViewByState();
 		TextView lastupdatetime = (TextView) header
 				.findViewById(R.id.lastupdate_time);
-		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 hh:mm:ss");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 hh:mm:ss",Locale.CHINESE);
 		Date date = new Date(System.currentTimeMillis());
 		String time = format.format(date);
 		lastupdatetime.setText(time);
 	}
 	
-	public void setInterface(ILoadListener iLoadListener){
-		this.iLoadListener = iLoadListener;
-	}
-	//加载更多数据的回调接口
-	public interface ILoadListener{
-		public void onLoad();
-	}
-	
-	public void setRefreshInterface(IReflashListener iReflashListener){
-		this.iReflashListener = iReflashListener;
+	public void setRefreshInterface(IRefreshListener iRefreshListener){
+		this.iRefreshListener = iRefreshListener;
 	}
 	/**
 	 * 刷新数据接口
 	 * @author Administrator
 	 */
-	public interface IReflashListener{
-		public void onReflash();
+	public interface IRefreshListener{
+		public void onPullUp();
+		public void onPullDown();
 	}
 }

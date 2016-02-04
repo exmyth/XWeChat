@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import com.exmyth.wechat.R;
 import com.exmyth.wechat.refresh.adapter.MyAdapter;
 import com.exmyth.wechat.refresh.entity.ApkEntity;
-import com.exmyth.wechat.refresh.view.LoadListView;
-import com.exmyth.wechat.refresh.view.LoadListView.ILoadListener;
-import com.exmyth.wechat.refresh.view.LoadListView.IReflashListener;
+import com.exmyth.wechat.refresh.view.PullRefreshListView;
+import com.exmyth.wechat.refresh.view.PullRefreshListView.IRefreshListener;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends Activity implements ILoadListener,IReflashListener{
+public class MainActivity extends Activity implements IRefreshListener{
 	ArrayList<ApkEntity> apk_list = new ArrayList<ApkEntity>();
 
 	@Override
@@ -25,11 +24,10 @@ public class MainActivity extends Activity implements ILoadListener,IReflashList
 	}
 
 	MyAdapter adapter;
-	LoadListView listview;
+	PullRefreshListView listview;
 	private void showListView(ArrayList<ApkEntity> apk_list) {
 		if (adapter == null) {
-			listview = (LoadListView) findViewById(R.id.listview);
-			listview.setInterface(this);
+			listview = (PullRefreshListView) findViewById(R.id.listview);
 			listview.setRefreshInterface(this);
 			adapter = new MyAdapter(this, apk_list);
 			listview.setAdapter(adapter);
@@ -58,14 +56,12 @@ public class MainActivity extends Activity implements ILoadListener,IReflashList
 	}
 
 	@Override
-	public void onLoad() {
-		// TODO Auto-generated method stub
+	public void onPullUp() {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				//获取更多数据
 				getLoadData();
 				//更新listview显示；
@@ -77,14 +73,12 @@ public class MainActivity extends Activity implements ILoadListener,IReflashList
 	}
 	
 	@Override
-	public void onReflash() {
-		// TODO Auto-generated method stub\
+	public void onPullDown() {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				//获取最新数据
 				setReflashData();
 				//通知界面显示
