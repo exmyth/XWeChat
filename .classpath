@@ -12,6 +12,7 @@
 	<classpathentry kind="src" path="src/tab"/>
 	<classpathentry kind="src" path="src/util"/>
 	<classpathentry kind="src" path="src/view"/>
+	<classpathentry kind="src" path="src/ViewDragHelper"/>
 	<classpathentry kind="src" path="src/wish"/>
 	<classpathentry kind="src" path="lib/BadgeView"/>
 	<classpathentry kind="src" path="gen"/>

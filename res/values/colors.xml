@@ -53,5 +53,7 @@
     
     <color name="main_link_text_color">#ffbedfff</color>
     <color name="timeline_clickable_text_highlighted_background">#ffbedfff</color>
+    
+    <color name="middle_red">#e7abff</color>
 
 </resources>
