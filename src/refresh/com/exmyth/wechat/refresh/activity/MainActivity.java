@@ -7,12 +7,13 @@ import com.exmyth.wechat.refresh.adapter.MyAdapter;
 import com.exmyth.wechat.refresh.entity.ApkEntity;
 import com.exmyth.wechat.refresh.view.LoadListView;
 import com.exmyth.wechat.refresh.view.LoadListView.ILoadListener;
+import com.exmyth.wechat.refresh.view.LoadListView.IReflashListener;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends Activity implements ILoadListener{
+public class MainActivity extends Activity implements ILoadListener,IReflashListener{
 	ArrayList<ApkEntity> apk_list = new ArrayList<ApkEntity>();
 
 	@Override
@@ -29,6 +30,7 @@ public class MainActivity extends Activity implements ILoadListener{
 		if (adapter == null) {
 			listview = (LoadListView) findViewById(R.id.listview);
 			listview.setInterface(this);
+			listview.setRefreshInterface(this);
 			adapter = new MyAdapter(this, apk_list);
 			listview.setAdapter(adapter);
 		} else {
@@ -72,5 +74,34 @@ public class MainActivity extends Activity implements ILoadListener{
 				listview.loadComplete();
 			}
 		}, 2000);
+	}
+	
+	@Override
+	public void onReflash() {
+		// TODO Auto-generated method stub\
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				//获取最新数据
+				setReflashData();
+				//通知界面显示
+				showListView(apk_list);
+				//通知listview 刷新数据完毕；
+				listview.reflashComplete();
+			}
+		}, 2000);
+	}
+	
+	private void setReflashData() {
+		for (int i = 0; i < 2; i++) {
+			ApkEntity entity = new ApkEntity();
+			entity.setName("刷新数据");
+			entity.setDes("这是一个神奇的应用");
+			entity.setInfo("50w用户");
+			apk_list.add(0,entity);
+		}
 	}
 }
