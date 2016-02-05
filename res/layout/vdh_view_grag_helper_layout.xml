@@ -6,7 +6,7 @@
 
     <include layout="@layout/vdh_common_top_bar_layout" />
 
-    <com.exmyth.wechat.vdh.widget.ViewGragOne
+    <com.exmyth.wechat.vdh.widget.ViewDragOne
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
@@ -28,6 +28,6 @@
             android:background="#C1FFC1"
             android:gravity="center"
             android:text="TV_TWO" />
-    </com.exmyth.wechat.vdh.widget.ViewGragOne>
+    </com.exmyth.wechat.vdh.widget.ViewDragOne>
 
 </LinearLayout>

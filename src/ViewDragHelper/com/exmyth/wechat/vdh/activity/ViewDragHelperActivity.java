@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ViewGragHelperActivity extends BaseActivity {
+public class ViewDragHelperActivity extends BaseActivity {
     private LinearLayout top_bar_linear_back;
     private TextView top_bar_title;
     @Override
@@ -21,7 +21,7 @@ public class ViewGragHelperActivity extends BaseActivity {
     class CustomOnClickListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-           ViewGragHelperActivity.this.finish();
+           ViewDragHelperActivity.this.finish();
         }
     }
 }

@@ -62,7 +62,7 @@ public class MainInfoFragment  extends Fragment implements ViewPager.OnPageChang
     @Override
     public void onPageSelected(int position) {
         int index=position+1;
-        Log.d("zttjiangqq","当前为第"+index+"页...");
+        Log.d("exmyth","当前为第"+index+"页...");
         if(position==0){
             ((MainActivity)getActivity()).getDl().setDrag(true);
         }else if(position==fragments.size()-1){

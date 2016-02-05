@@ -52,11 +52,11 @@ public class DragLayout extends FrameLayout {
 
     public DragLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        this.context = context;
     }
 
     public DragLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.context = context;
         gestureDetector = new GestureDetectorCompat(context, new YScrollDetector());
         dragHelper = ViewDragHelper.create(this, dragHelperCallback);
     }
@@ -64,7 +64,7 @@ public class DragLayout extends FrameLayout {
     class YScrollDetector extends SimpleOnGestureListener {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float dx, float dy) {
-            Log.d("zttjiangqq","dx="+dx+",dy="+dy+",isDrag:"+isDrag);
+            Log.d("exmyth","dx="+dx+",dy="+dy+",isDrag:"+isDrag);
             return (Math.abs(dy) <= Math.abs(dx)&&isDrag!=false);
         }
     }

@@ -14,17 +14,17 @@ import android.widget.LinearLayout;
  * 当前类注释:
  * 包名：com.exmyth.wechat.vdh.ViewDragHelper
  */
-public class ViewGragOne extends LinearLayout{
+public class ViewDragOne extends LinearLayout{
     private View view_one,view_two;
     private ViewDragHelper mDragHelper;
-    public ViewGragOne(Context context) {
+    public ViewDragOne(Context context) {
         this(context, null);
     }
-    public ViewGragOne(Context context, AttributeSet attrs) {
+    public ViewDragOne(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
     @SuppressLint("NewApi")
-	public ViewGragOne(Context context, AttributeSet attrs, int defStyleAttr) {
+	public ViewDragOne(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         /*
          * 参数1.一个ViewGroup，也就是拖动子View的父控件(ViewGroup)
@@ -105,7 +105,7 @@ public class ViewGragOne extends LinearLayout{
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
-            Log.d("zttjiangqq","onViewReleased");
+            Log.d("exmyth","onViewReleased");
         }
     }
 
