@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src/aidl"/>
 	<classpathentry kind="src" path="src/app"/>
 	<classpathentry kind="src" path="src/activity"/>
 	<classpathentry kind="src" path="src/arcmenu"/>
 	<classpathentry kind="src" path="src/drawer"/>
 	<classpathentry kind="src" path="src/imageloader"/>
 	<classpathentry kind="src" path="src/indexablelist"/>
+	<classpathentry kind="src" path="src/network/asynchttp"/>
 	<classpathentry kind="src" path="src/previous"/>
 	<classpathentry kind="src" path="src/refresh"/>
 	<classpathentry kind="src" path="src/slidingmenu"/>
