@@ -271,11 +271,10 @@
     <string name="str_team_userinfo">用户主页</string>
     <string name="str_team_select_team">选择团队</string>
     <string name="str_team_my_issue">我的任务</string>
-    
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_world">Hello world!</string>
-    
     <string name="string_tv_top_bar_back">返回</string>
     <string name="string_tv_setting">WebView页面</string>
+    <string name="title_activity_network_asynchttp_activity_main">MainActivity</string>
 
 </resources>
