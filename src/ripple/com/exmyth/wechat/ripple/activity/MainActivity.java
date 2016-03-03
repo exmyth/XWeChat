@@ -15,8 +15,9 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ripple_activity_main);
-		initView();
+//		setContentView(R.layout.ripple_activity_main);
+//		initView();
+		setContentView(R.layout.ripple_activity_main2);
 	}
 
 	private void initView() {
