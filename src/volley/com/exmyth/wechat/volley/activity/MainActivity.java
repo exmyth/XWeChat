@@ -16,6 +16,7 @@ import com.android.volley.toolbox.ImageLoader.ImageListener;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exmyth.wechat.R;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
 	private Context context;
 	private RequestQueue mQueue;
 	private ImageView imageView;
+	private NetworkImageView networkImageView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +49,20 @@ public class MainActivity extends Activity {
 //		requestJSON();
 //		requestJsonArray();
 //		requestImage();
-		loadImage();
+//		loadImage();
+		setNetworkImageView();
 	}
 	
+	private void setNetworkImageView() {
+		networkImageView = (NetworkImageView) findViewById(R.id.network_image_view);
+		
+		networkImageView.setDefaultImageResId(R.drawable.default_image);  
+		networkImageView.setErrorImageResId(R.drawable.error_image);
+		ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache()); 
+		networkImageView.setImageUrl("http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg",  
+		                imageLoader);
+	}
+
 	private void initView() {
 		imageView = (ImageView) findViewById(R.id.imgVolley);
 	}
