@@ -1,4 +1,4 @@
-package com.android.volley;
+package com.android.volley.toolbox;
 
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
@@ -7,9 +7,13 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.Request.Method;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
-import com.android.volley.toolbox.HttpHeaderParser;
 
 public class XMLRequest extends Request<XmlPullParser> {  
   

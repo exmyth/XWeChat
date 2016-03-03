@@ -14,7 +14,7 @@ import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.XMLRequest;
+import com.android.volley.toolbox.GsonRequest;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
 import com.android.volley.toolbox.ImageRequest;
@@ -23,8 +23,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.XMLRequest;
 import com.exmyth.wechat.R;
 import com.exmyth.wechat.volley.cache.BitmapCache;
+import com.exmyth.wechat.volley.model.Weather;
+import com.exmyth.wechat.volley.model.WeatherInfo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -55,9 +58,30 @@ public class MainActivity extends Activity {
 //		requestImage();
 //		loadImage();
 //		setNetworkImageView();
-		requestXML();
+//		requestXML();
+		requestGSON();
 	}
 	
+	private void requestGSON() {
+		GsonRequest<Weather> gsonRequest = new GsonRequest<Weather>(  
+		        "http://www.weather.com.cn/data/sk/101010100.html", Weather.class,  
+		        new Response.Listener<Weather>() {  
+		            @Override  
+		            public void onResponse(Weather weather) {  
+		                WeatherInfo weatherInfo = weather.getWeatherinfo();  
+		                Log.d("TAG", "city is " + weatherInfo.getCity());  
+		                Log.d("TAG", "temp is " + weatherInfo.getTemp());  
+		                Log.d("TAG", "time is " + weatherInfo.getTime());  
+		            }  
+		        }, new Response.ErrorListener() {  
+		            @Override  
+		            public void onErrorResponse(VolleyError error) {  
+		                Log.e("TAG", error.getMessage(), error);  
+		            }  
+		        });  
+		mQueue.add(gsonRequest); 
+	}
+
 	private void requestXML() {
 		XMLRequest xmlRequest = new XMLRequest(  
 		        "http://flash.weather.com.cn/wmaps/xml/china.xml",  
