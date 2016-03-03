@@ -11,35 +11,78 @@ import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageLoader.ImageListener;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exmyth.wechat.R;
+import com.exmyth.wechat.volley.cache.BitmapCache;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 public class MainActivity extends Activity {
 
 	private Context context;
 	private RequestQueue mQueue;
+	private ImageView imageView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.volley_activity_main);
 		context = this;
+		initView();
 		initData();
 //		requestString();
 //		requestJSON();
-		requestJsonArray();
+//		requestJsonArray();
+//		requestImage();
+		loadImage();
 	}
 	
+	private void initView() {
+		imageView = (ImageView) findViewById(R.id.imgVolley);
+	}
+
+	private void loadImage() {
+		ImageListener listener = ImageLoader.getImageListener(imageView,  
+		        R.drawable.default_image, R.drawable.error_image);
+		ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache()); 
+		imageLoader.get("http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg",  
+                listener, 200, 200);  
+	}
+
+	private void requestImage() {
+		ImageRequest imageRequest = new ImageRequest("http://developer.android.com/images/home/aw_dac.png", 
+				new Response.Listener<Bitmap>() {  
+		            @Override  
+		            public void onResponse(Bitmap response) {  
+						imageView.setImageBitmap(response);  
+		            }  
+		        }, 0, 0, ScaleType.CENTER_CROP, Config.RGB_565, 
+				new Response.ErrorListener() {  
+		            @Override  
+		            public void onErrorResponse(VolleyError error) {  
+		                imageView.setImageResource(R.drawable.ic_launcher);  
+		            }
+		        }
+		 );
+		
+		mQueue.add(imageRequest);  
+	}
+
 	private void requestJsonArray() {
-		new JsonArrayRequest(Method.POST, "http://www.baidu.com", null, 
+		JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Method.POST, "http://www.baidu.com", null, 
 		new Response.Listener<JSONArray>() {
 
 			@Override
@@ -51,6 +94,8 @@ public class MainActivity extends Activity {
 			public void onErrorResponse(VolleyError error) {
 			}
 		});
+		
+		mQueue.add(jsonArrayRequest);
 	}
 
 	private void requestJSON() {
