@@ -1,9 +1,15 @@
 package com.exmyth.wechat.volley.activity;
 
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exmyth.wechat.R;
@@ -24,14 +30,31 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.volley_activity_main);
 		context = this;
 		initData();
-		request();
+//		requestString();
+		requestJSON();
 	}
 	
+	private void requestJSON() {
+		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("http://m.weather.com.cn/data/101010100.html", null,
+				new Response.Listener<JSONObject>() {
+					@Override
+					public void onResponse(JSONObject response) {
+						Log.d("TAG", response.toString());
+					}
+				}, new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.e("TAG", error.getMessage(), error);
+					}
+				});
+		mQueue.add(jsonObjectRequest);
+	}
+
 	private void initData() {
 		mQueue = Volley.newRequestQueue(context);
 	}
 
-	private void request() {
+	private void requestString() {
 		StringRequest stringRequest = new StringRequest(Method.POST,"http://www.baidu.com",  
 	        new Response.Listener<String>() {  
 	            @Override  
@@ -43,7 +66,13 @@ public class MainActivity extends Activity {
 	            public void onErrorResponse(VolleyError error) {  
 	                Log.e("TAG", error.getMessage(), error);  
 	            }  
-	        });
+	        }){
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				// TODO Auto-generated method stub
+				return super.getParams();
+			}
+		};
 		mQueue.add(stringRequest);
 	}
 }

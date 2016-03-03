@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/hello_world" />
+    
+    <com.exmyth.wechat.ripple.view.WaveView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/ripple_activity_main_btn" 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Ripple"/>
+    </com.exmyth.wechat.ripple.view.WaveView>
+</LinearLayout>
