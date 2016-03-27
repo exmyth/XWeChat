@@ -70,6 +70,26 @@ public class MainActivity extends Activity implements OnClickListener {
 	不需要额外的权限
 	向上或向下兼容
 	*/
+	
+	//=======================================================================
+//	使用Android自带的API时有个坑WifiInfo里面有这样一段代码：
+//	/**
+//     * Default MAC address reported to a client that does not have the
+//     * android.permission.LOCAL_MAC_ADDRESS permission.
+//     *
+//     * @hide
+//     */
+//    public static final String DEFAULT_MAC_ADDRESS = "02:00:00:00:00:00";
+	//========================================================================
+	/*
+	上面的代码是从6.0API复制出来的意思是说
+	如果你没有说明 android.permission.LOCAL_MAC_ADDRESS
+	权限那么将返回这个默认的MAC地址
+	我在6.0上的机器上试了一下好像并没有像它说的那样
+	我声明 android.permission.LOCAL_MAC_ADDRESS权限后
+	还是拿到这个默认的MAC地址。
+	也没有继续深究发现通过JAVA的API也是可以使到MAC地址的。
+	*/
 	public static String getMacAddress(Context context) {
         String macAddress = null;
         try{
