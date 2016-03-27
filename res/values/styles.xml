@@ -12,6 +12,15 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="android:textAllCaps">false</item>
+        <item name="android:windowActionBar">false</item>
+        <!-- 
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+         -->
     </style>
 
     <!-- Application theme. -->

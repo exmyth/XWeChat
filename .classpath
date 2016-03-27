@@ -14,6 +14,7 @@
 	<classpathentry kind="src" path="src/refresh"/>
 	<classpathentry kind="src" path="src/ripple"/>
 	<classpathentry kind="src" path="src/slidingmenu"/>
+	<classpathentry kind="src" path="src/statusbar"/>
 	<classpathentry kind="src" path="src/tab"/>
 	<classpathentry kind="src" path="src/util"/>
 	<classpathentry kind="src" path="src/uuid"/>
