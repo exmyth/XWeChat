@@ -40,6 +40,7 @@ public class ViewHolder
 {
 	private SparseArray<View> mViews;
 	private int mPosition;
+	private int mLayoutId;
 	private View mConvertView;
 	private Context mContext;
 
@@ -55,6 +56,7 @@ public class ViewHolder
 		this.mConvertView.setTag(this);
 		this.mContext = context;
 		this.mPosition = position;
+		this.mLayoutId = layoutId;
 	}
 	
 	public static ViewHolder get(Context context, View convertView, 
@@ -72,7 +74,9 @@ public class ViewHolder
 			return holder;
 		}
 	}
-	
+	public int getLayoutId(){
+		return mLayoutId;
+	}
 	/** 
 	 * 通过viewId获取控件
 	 * @param viewId

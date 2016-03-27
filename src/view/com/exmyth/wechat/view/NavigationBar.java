@@ -112,7 +112,7 @@ public class NavigationBar extends RelativeLayout {
 		rightText= ta.getString(R.styleable.NavigationBar_rightText);
 		
 		titleTextSize = ta.getDimension(R.styleable.NavigationBar_titleTextSize, 0);
-		titleTextColor = ta.getColor(R.styleable.NavigationBar_titleTextColor, 0);
+		titleTextColor = ta.getColor(R.styleable.NavigationBar_xtitleTextColor, 0);
 		titleText = ta.getString(R.styleable.NavigationBar_titleText);
 		ta.recycle();
 	}

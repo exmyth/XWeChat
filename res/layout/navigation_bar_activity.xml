@@ -17,7 +17,7 @@
         app:rightTextColor="#FFFFFF"
         app:titleText="Title"
         app:titleTextSize="12sp"
-        app:titleTextColor="#000000"
+        app:xtitleTextColor="#000000"
          />
 
 </LinearLayout>
