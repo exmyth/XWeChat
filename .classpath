@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src/aidl"/>
 	<classpathentry kind="src" path="src/app"/>
+	<classpathentry kind="src" path="src/asynctask"/>
 	<classpathentry kind="src" path="src/activity"/>
 	<classpathentry kind="src" path="src/arcmenu"/>
 	<classpathentry kind="src" path="src/commonAdapter"/>
