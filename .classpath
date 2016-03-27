@@ -15,6 +15,7 @@
 	<classpathentry kind="src" path="src/slidingmenu"/>
 	<classpathentry kind="src" path="src/tab"/>
 	<classpathentry kind="src" path="src/util"/>
+	<classpathentry kind="src" path="src/uuid"/>
 	<classpathentry kind="src" path="src/view"/>
 	<classpathentry kind="src" path="src/ViewDragHelper"/>
 	<classpathentry kind="src" path="src/volley"/>
