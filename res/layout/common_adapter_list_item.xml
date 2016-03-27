@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="10dp" >
+
+    <!-- 
+   	Item控件抢占焦点解决方案
+    1.父布局增加属性：android:descendantFocusability="blocksDescendants"
+    2.每个子控件增加属性：android:focusable="false"
+     -->
+    <!-- android:focusable="false" -->
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:text="Android新技能 Get" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/cb"
+        android:maxLines="2"
+        android:text="Android-打造万能的ListView和GridView适配器"
+        android:textColor="#898989" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_desc"
+        android:layout_marginTop="10dp"
+        android:text="2015-08-05"
+        android:textColor="#898989"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_desc"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@drawable/wish_logo"
+        android:background="#20793D"
+        android:maxLines="1"
+        android:text="10086"
+        android:textColor="#FFF" />
+
+</RelativeLayout>
