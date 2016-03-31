@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="item_count" format="integer"/>
+    </declare-styleable>
+    
     <declare-styleable name="ChangeColorIconWithText">
         <attr name="xicon" format="reference"></attr>
         <attr name="xcolor" format="color"></attr>
