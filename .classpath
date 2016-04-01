@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="src/asynctask"/>
 	<classpathentry kind="src" path="src/activity"/>
 	<classpathentry kind="src" path="src/arcmenu"/>
+	<classpathentry kind="src" path="src/backhome"/>
 	<classpathentry kind="src" path="src/commonAdapter"/>
 	<classpathentry kind="src" path="src/download"/>
 	<classpathentry kind="src" path="src/drawer"/>
