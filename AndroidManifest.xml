@@ -45,7 +45,7 @@
         <!-- 在本应用中导入需要使用的包，放在application里面activity外面 -->
         <uses-library android:name="android.test.runner" />
 
-        <activity android:name=".backhome.activity.MainActivity" >
+        <activity android:name=".actfragment.activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
