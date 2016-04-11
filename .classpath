@@ -9,6 +9,7 @@
 	<classpathentry kind="src" path="src/commonAdapter"/>
 	<classpathentry kind="src" path="src/download"/>
 	<classpathentry kind="src" path="src/drawer"/>
+	<classpathentry kind="src" path="src/exception"/>
 	<classpathentry kind="src" path="src/imageloader"/>
 	<classpathentry kind="src" path="src/indexablelist"/>
 	<classpathentry kind="src" path="src/network/asynchttp"/>
