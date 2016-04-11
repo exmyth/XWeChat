@@ -1,12 +1,12 @@
-package com.exmyth.wechat.app;
+package com.exmyth.wechat.exception.activity;
 
-import android.app.Application;
+import android.app.Activity;
+import android.os.Bundle;
 
-public class XApplicaton extends Application {
+public class BaseActivity extends Activity{
 	@Override
-	public void onCreate() {
-		super.onCreate();
-		
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		//参考http://sixwolf.net/blog/2016/04/11/Android去除烦人的闪退弹窗/
 		Thread.setDefaultUncaughtExceptionHandler(new MyUnCaughtExceptionHandler());
 	}
