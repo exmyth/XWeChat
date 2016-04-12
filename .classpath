@@ -10,7 +10,6 @@
 	<classpathentry kind="src" path="src/commonAdapter"/>
 	<classpathentry kind="src" path="src/download"/>
 	<classpathentry kind="src" path="src/drawer"/>
-	<classpathentry kind="src" path="lib/elastic"/>
 	<classpathentry kind="src" path="src/exception"/>
 	<classpathentry kind="src" path="src/imageloader"/>
 	<classpathentry kind="src" path="src/indexablelist"/>
@@ -22,6 +21,7 @@
 	<classpathentry kind="src" path="src/screen"/>
 	<classpathentry kind="src" path="src/slidelistview"/>
 	<classpathentry kind="src" path="src/slidingmenu"/>
+	<classpathentry kind="src" path="src/slidingview"/>
 	<classpathentry kind="src" path="src/statusbar"/>
 	<classpathentry kind="src" path="src/tab"/>
 	<classpathentry kind="src" path="src/util"/>
@@ -33,6 +33,7 @@
 	<classpathentry kind="src" path="src/wish"/>
 	<classpathentry kind="src" path="src/zoom"/>
 	<classpathentry kind="src" path="lib/BadgeView"/>
+	<classpathentry kind="src" path="lib/elastic"/>
 	<classpathentry kind="src" path="lib/gson"/>
 	<classpathentry kind="src" path="lib/Volley"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
