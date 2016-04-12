@@ -20,5 +20,23 @@ public class MainActivity extends Activity {
 		String[] arr = new String[]{"黄家驹","黄贯中","叶世荣","黄家强"};
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
 		slideListView.setAdapter(adapter);
+		
+		/*
+		List<Map<String,Object>> mData= new ArrayList<Map<String,Object>>();;  
+		for(int i =0; i < mData.size(); i++) {      
+		    Map<String,Object> item = new HashMap<String,Object>();      
+		    item.put("image", 0);      
+		    item.put("title", "title");      
+		    item.put("text", "text");      
+		    mData.add(item);       
+		}      
+		SimpleAdapter sAdapter = new SimpleAdapter(  
+		                this,  
+		                mData,  
+		                R.layout.item,      
+		                new String[]{"image","title","text"},  
+		                new int[]{R.id.image,R.id.title,R.id.text});
+		*/
+		
 	}
 }
