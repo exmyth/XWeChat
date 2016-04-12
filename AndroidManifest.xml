@@ -20,15 +20,13 @@
     <!-- com.exmyth.wechat.uuid.activity.MainActivity.getMacAddress() -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
     </uses-permission>
- <!-- 允许程序访问访问WIFI网络状态信息 -->
+    <!-- 允许程序访问访问WIFI网络状态信息 -->
     <!-- com.exmyth.wechat.uuid.activity.MainActivity.getMacAddress() -->
     <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
     <!-- 允许程序改变网络链接状态 -->
-<!--     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"></uses-permission>
- -->
+<!--      <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"></uses-permission> -->
     <!-- 允许程序改变WIFI链接状态 -->
-<!-- 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
- -->
+<!--  	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission> -->
 
 
     <!-- 记住这个一要放在application外面，不然会出现配置错误 信息 -->
@@ -48,13 +46,17 @@
         <uses-library android:name="android.test.runner" />
 
         <activity
-            android:name=".screen.activity.MainActivity"
+            android:name=".slidinglistview.activity.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
         </activity>
     </application>
 
