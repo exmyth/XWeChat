@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.exmyth.wechat.slidingview.view.XRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical" >
 
     <com.exmyth.wechat.slidingview.view.ListViewCompat
@@ -14,11 +16,15 @@
         android:dividerHeight="1.0px"
         android:drawSelectorOnTop="false"
         android:listSelector="@android:color/transparent"
-        android:scrollbars="none"
-        >
-
-
+        android:scrollbars="none">
     </com.exmyth.wechat.slidingview.view.ListViewCompat>
 
+    <!-- 
+    <TextView
+        android:id="@+id/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#22ff0000" />
+     -->
 
-</LinearLayout>
+</com.exmyth.wechat.slidingview.view.XRelativeLayout>
