@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -89,7 +90,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 		});
     }
 
-    private class SlideAdapter extends BaseAdapter implements OnSlideListener{
+    private class SlideAdapter extends BaseAdapter implements OnSlideListener{//,OnShrinkListener
 
         private LayoutInflater mInflater;
 
@@ -126,6 +127,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 
                 holder = new ViewHolder(slideView);
                 slideView.setOnSlideListener(this);
+//                slideView.setOnShrinkListener(this);
                 slideView.setTag(holder);
             } else {
                 holder = (ViewHolder) slideView.getTag();
@@ -141,12 +143,14 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
             holder.msg.setText(item.msg);
             holder.time.setText(item.time);
             holder.deleteHolder.setOnClickListener(MainActivity.this);
+//            holder.content.setOnClickListener(MainActivity.this);
 
             return slideView;
         }
 
         @Override
         public void onSlide(View view, int status) {
+        	Log.d("exmyth", "onSlide");
             if (mLastSlideViewWithStatusOn != null && mLastSlideViewWithStatusOn != view) {
                 mLastSlideViewWithStatusOn.shrink();
             }
@@ -160,6 +164,12 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
             }
         }
 
+        /*
+		@Override
+		public void onShrink(View view, int status) {
+			mRelativeLayout.setIntercept(false);
+		}
+		*/
     }
 
     public class MessageItem {
@@ -175,6 +185,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
         public TextView title;
         public TextView msg;
         public TextView time;
+//        private LinearLayout content;
         public ViewGroup deleteHolder;
 
         ViewHolder(View view) {
@@ -182,6 +193,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
             title = (TextView) view.findViewById(R.id.title);
             msg = (TextView) view.findViewById(R.id.msg);
             time = (TextView) view.findViewById(R.id.time);
+//            content = (LinearLayout)view.findViewById(R.id.view_content);
             deleteHolder = (ViewGroup)view.findViewById(R.id.holder);
         }
     }
@@ -189,18 +201,32 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
-        Log.e(TAG, "onItemClick position=" + position);
+    	if(mLastSlideViewWithStatusOn == null || mLastSlideViewWithStatusOn.status == OnSlideListener.SLIDE_STATUS_OFF){
+			Log.e(TAG, "onItemClick position=" + position);
+			Log.d("exmyth", "onItemClick");
+			Toast.makeText(this, "onItemClick position=" + position, Toast.LENGTH_SHORT).show();
+		}
     }
 
 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.holder) {
-            Log.e(TAG, "onClick v=" + v);
+    	switch (v.getId()) {
+		case R.id.holder:
+			Log.e(TAG, "onClick v=" + v);
             Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show();
-            
-        }
+			break;
+		case R.id.view_content:
+			Log.d("exmyth", "onClick");
+			if(mLastSlideViewWithStatusOn==null ||mLastSlideViewWithStatusOn.status == OnSlideListener.SLIDE_STATUS_OFF){
+				Log.e(TAG, "onClick v=" + v);
+				Toast.makeText(this, "view_content", Toast.LENGTH_SHORT).show();
+			}
+			break;
+		default:
+			break;
+		}
     }
 
 

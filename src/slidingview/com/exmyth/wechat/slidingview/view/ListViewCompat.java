@@ -15,6 +15,10 @@ public class ListViewCompat extends ListView {
 
     private SlideView mFocusedItemView;
 
+//	private int x;
+
+//	private int y;
+
     public ListViewCompat(Context context) {
         super(context);
     }
@@ -60,8 +64,33 @@ public class ListViewCompat extends ListView {
         if (mFocusedItemView != null) {
             mFocusedItemView.onRequireTouchEvent(event);
         }
-
         return super.onTouchEvent(event);
+//        return handlerTouchResult(event);
     }
+
+    /*
+    private boolean handlerTouchResult(MotionEvent event) {
+		switch (event.getAction()) {
+			case MotionEvent.ACTION_DOWN: {
+				return super.onTouchEvent(event);
+			}
+			case MotionEvent.ACTION_MOVE: {
+				return super.onTouchEvent(event);
+			}
+        	case MotionEvent.ACTION_UP: {
+	        	float x2 = event.getX(); 
+	            float y2 = event.getY(); 
+	            if (Math.abs(x - x2) < 10) { 
+	                return true; 
+	            } 
+	            if(Math.abs(x - x2) >60){  // 真正的onTouch事件 
+	            	return false;
+	            }
+	        }
+        	default:break;
+        }
+		return super.onTouchEvent(event);// 距离较小，当作click事件来处理 
+	}
+    */
 
 }

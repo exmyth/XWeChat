@@ -21,13 +21,21 @@ public class SlideView extends LinearLayout {
     private RelativeLayout mHolder;
     private Scroller mScroller;
     private OnSlideListener mOnSlideListener;
+//    private OnShrinkListener mOnShrinkListener;
 
     private int mHolderWidth = 120;
 
     private int mLastX = 0;
     private int mLastY = 0;
+
+	public int status;
     private static final int TAN = 2;
 
+    /*
+    public interface OnShrinkListener {
+    	public void onShrink(View view, int status);
+    }
+    */
     public interface OnSlideListener {
         public static final int SLIDE_STATUS_OFF = 0;
         public static final int SLIDE_STATUS_START_SCROLL = 1;
@@ -74,12 +82,24 @@ public class SlideView extends LinearLayout {
         mOnSlideListener = onSlideListener;
     }
 
-    public void shrink() {
+    /*
+    public void setOnShrinkListener(OnShrinkListener mOnShrinkListener) {
+		this.mOnShrinkListener = mOnShrinkListener;
+	}
+    */
+
+	public void shrink() {
         if (getScrollX() != 0) {
             this.smoothScrollTo(0, 0);
+            status = OnSlideListener.SLIDE_STATUS_OFF;
+            /*
+            if(mOnShrinkListener != null){
+            	mOnShrinkListener.onShrink(this, status);
+            }
+            */
         }
     }
-
+    
     public void onRequireTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
         int y = (int) event.getY();
@@ -92,8 +112,8 @@ public class SlideView extends LinearLayout {
                 mScroller.abortAnimation();
             }
             if (mOnSlideListener != null) {
-                mOnSlideListener.onSlide(this,
-                        OnSlideListener.SLIDE_STATUS_START_SCROLL);
+            	status = OnSlideListener.SLIDE_STATUS_START_SCROLL;
+                mOnSlideListener.onSlide(this,status);
             }
             break;
         }
@@ -122,9 +142,9 @@ public class SlideView extends LinearLayout {
             }
             this.smoothScrollTo(newScrollX, 0);
             if (mOnSlideListener != null) {
-                mOnSlideListener.onSlide(this,
-                        newScrollX == 0 ? OnSlideListener.SLIDE_STATUS_OFF
-                                : OnSlideListener.SLIDE_STATUS_ON);
+            	status = newScrollX == 0 ? OnSlideListener.SLIDE_STATUS_OFF
+                        : OnSlideListener.SLIDE_STATUS_ON;
+                mOnSlideListener.onSlide(this,status);
             }
             break;
         }
