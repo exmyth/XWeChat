@@ -8,6 +8,7 @@
 	<classpathentry kind="src" path="src/arcmenu"/>
 	<classpathentry kind="src" path="src/backhome"/>
 	<classpathentry kind="src" path="src/commonAdapter"/>
+	<classpathentry kind="src" path="src/DoubleSlidingLayout"/>
 	<classpathentry kind="src" path="src/download"/>
 	<classpathentry kind="src" path="src/drawer"/>
 	<classpathentry kind="src" path="src/exception"/>

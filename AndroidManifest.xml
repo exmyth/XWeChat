@@ -46,7 +46,7 @@
         <uses-library android:name="android.test.runner" />
 
         <activity
-            android:name=".touchimageview.activity.MainActivity"
+            android:name=".doubleslidinglayout.activity.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
