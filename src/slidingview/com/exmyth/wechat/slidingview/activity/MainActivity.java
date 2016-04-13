@@ -7,11 +7,13 @@ import com.exmyth.wechat.R;
 import com.exmyth.wechat.slidingview.view.ListViewCompat;
 import com.exmyth.wechat.slidingview.view.SlideView;
 import com.exmyth.wechat.slidingview.view.SlideView.OnSlideListener;
+import com.exmyth.wechat.slidingview.view.XRelativeLayout;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -31,6 +33,8 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
     private List<MessageItem> mMessageItems = new ArrayList<MainActivity.MessageItem>();
 
     private SlideView mLastSlideViewWithStatusOn;
+    
+    private XRelativeLayout mRelativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
     private void initView() {
     	
         mListView = (ListViewCompat) findViewById(R.id.list);
+        mRelativeLayout = (XRelativeLayout) findViewById(R.id.wrapper);
 
         for (int i = 0; i < 20; i++) {
             MessageItem item = new MessageItem();
@@ -64,6 +69,24 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
         
         mListView.setAdapter(new SlideAdapter());
         mListView.setOnItemClickListener(this);
+        
+        mRelativeLayout.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()) {
+			        case MotionEvent.ACTION_DOWN: {
+			        	mRelativeLayout.setIntercept(false);
+						if (mLastSlideViewWithStatusOn != null) {
+			                mLastSlideViewWithStatusOn.shrink();
+			            }
+						break;
+		        	}
+			        default:break;
+		        }
+				return true;
+			}
+		});
     }
 
     private class SlideAdapter extends BaseAdapter implements OnSlideListener{
@@ -130,6 +153,10 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
 
             if (status == SLIDE_STATUS_ON) {
                 mLastSlideViewWithStatusOn = (SlideView) view;
+                mRelativeLayout.setIntercept(true);
+            }
+            else{
+            	mRelativeLayout.setIntercept(false);
             }
         }
 
