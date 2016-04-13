@@ -1,5 +1,7 @@
 package com.exmyth.wechat.slidingview.view;
 
+import com.exmyth.wechat.slidingview.view.SlideView.OnSlideListener;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -10,6 +12,7 @@ public class XRelativeLayout extends RelativeLayout {
 
 	private boolean mIntercept = false;
 	private int mHolderWidth = 120;
+	private SlideView mLastSlideViewWithStatusOn;
 
 	public XRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
@@ -31,14 +34,21 @@ public class XRelativeLayout extends RelativeLayout {
 //		invalidate();
 	}
 
+	public void setLastSlideViewWithStatusOn(SlideView mLastSlideViewWithStatusOn) {
+		this.mLastSlideViewWithStatusOn = mLastSlideViewWithStatusOn;
+	}
+
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		if(mIntercept){
 			float x = ev.getX();
-			if(x<getWidth()-mHolderWidth){
-				return true;
+			float y = ev.getY();
+			int top = mLastSlideViewWithStatusOn.getTop();
+			int bottom = mLastSlideViewWithStatusOn.getBottom();
+			if((x>getWidth()-mHolderWidth)&&(top<y&&y<bottom)&&mLastSlideViewWithStatusOn.status == OnSlideListener.SLIDE_STATUS_ON){
+				return super.onInterceptTouchEvent(ev);
 			}
-			return super.onInterceptTouchEvent(ev);
+			return true;
 		}
 		else{
 			return super.onInterceptTouchEvent(ev);

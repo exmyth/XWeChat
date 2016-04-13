@@ -149,14 +149,15 @@ public class MainActivity extends Activity implements OnClickListener,OnItemClic
         }
 
         @Override
-        public void onSlide(View view, int status) {
+        public void onSlide(SlideView view, int status) {
         	Log.d("exmyth", "onSlide");
+        	mRelativeLayout.setLastSlideViewWithStatusOn(view);
             if (mLastSlideViewWithStatusOn != null && mLastSlideViewWithStatusOn != view) {
                 mLastSlideViewWithStatusOn.shrink();
             }
 
             if (status == SLIDE_STATUS_ON) {
-                mLastSlideViewWithStatusOn = (SlideView) view;
+                mLastSlideViewWithStatusOn = view;
                 mRelativeLayout.setIntercept(true);
             }
             else{

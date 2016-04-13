@@ -29,6 +29,8 @@ public class SlideView extends LinearLayout {
     private int mLastY = 0;
 
 	public int status;
+//	public int destX;
+	
     private static final int TAN = 2;
 
     /*
@@ -45,7 +47,7 @@ public class SlideView extends LinearLayout {
          * @param view current SlideView
          * @param status SLIDE_STATUS_ON or SLIDE_STATUS_OFF
          */
-        public void onSlide(View view, int status);
+        public void onSlide(SlideView view, int status);
     }
 
     public SlideView(Context context) {
@@ -160,6 +162,7 @@ public class SlideView extends LinearLayout {
         // 缓慢滚动到指定位置
         int scrollX = getScrollX();
         int delta = destX - scrollX;
+//        this.destX = destX;
         mScroller.startScroll(scrollX, 0, delta, 0, Math.abs(delta) * 3);
         invalidate();
     }
