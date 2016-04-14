@@ -35,6 +35,9 @@
         android:label="Tests for My App"
         android:targetPackage="com.exmyth.wechat" />
 
+    <!-- 
+    android:taskAffinity="com.exmyth.wechat"
+     -->
     <application
         android:name=".AppContext"
         android:allowBackup="true"
@@ -45,19 +48,22 @@
         <!-- 在本应用中导入需要使用的包，放在application里面activity外面 -->
         <uses-library android:name="android.test.runner" />
 
+		<!-- 
+		android:taskAffinity="task1"
+		 -->
         <activity
-            android:name=".slidingview.activity.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".launch.activity.MainActivity"
+            android:label="@string/title_activity_main"
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
+        
+        <activity android:name=".launch.activity.CustomActivity"></activity>
+        <activity android:name=".launch.activity.ProgressAcitivty"></activity>
     </application>
 
 </manifest>

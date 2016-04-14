@@ -14,6 +14,7 @@
 	<classpathentry kind="src" path="src/exception"/>
 	<classpathentry kind="src" path="src/imageloader"/>
 	<classpathentry kind="src" path="src/indexablelist"/>
+	<classpathentry kind="src" path="src/launch"/>
 	<classpathentry kind="src" path="src/lockpattern"/>
 	<classpathentry kind="src" path="src/network/asynchttp"/>
 	<classpathentry kind="src" path="src/previous"/>
