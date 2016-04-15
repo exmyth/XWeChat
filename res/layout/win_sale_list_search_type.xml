@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/win_sale_list_search_type"
+    android:layout_width="139dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_border2"
+    android:orientation="vertical" >
+
+    <!-- 
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+     -->
+    <LinearLayout
+        android:id="@+id/win_sale_list_search_type_consumerName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="-0.5dp"
+        android:background="@drawable/selector_activity_sale_list_search_type"
+        
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/win_sale_list_search_type_consumer_name" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="consumerName"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/win_sale_list_search_type_productName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="-0.5dp"
+        android:background="@drawable/selector_activity_sale_list_search_type"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/win_sale_list_search_type_product_name" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="productName"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/win_sale_list_search_type_consumerMobile"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="-0.5dp"
+        android:background="@drawable/selector_activity_sale_list_search_type"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/win_sale_list_search_type_consumer_mobile" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="consumerMobile"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

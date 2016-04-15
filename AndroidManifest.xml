@@ -52,7 +52,7 @@
 		android:taskAffinity="task1"
 		 -->
         <activity
-            android:name=".launch.activity.MainActivity"
+            android:name=".popup.activity.MainActivity"
             android:label="@string/title_activity_main"
              >
             <intent-filter>

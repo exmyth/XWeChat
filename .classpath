@@ -17,6 +17,7 @@
 	<classpathentry kind="src" path="src/launch"/>
 	<classpathentry kind="src" path="src/lockpattern"/>
 	<classpathentry kind="src" path="src/network/asynchttp"/>
+	<classpathentry kind="src" path="src/popup"/>
 	<classpathentry kind="src" path="src/previous"/>
 	<classpathentry kind="src" path="src/refresh"/>
 	<classpathentry kind="src" path="src/ripple"/>
