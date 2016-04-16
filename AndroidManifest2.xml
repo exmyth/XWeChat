@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.exmyth.wechat"
+    android:versionCode="1"
+    android:versionName="0.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+		<!-- Android LtargetSdkVersion22 --> 
+		<!-- SDK --> 
+		<uses-permission android:name="android.permission.INTERNET" /> 
+		<uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+		<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> 
+		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+		<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> 
+		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+		<uses-permission android:name="android.permission.VIBRATE" /> 
+		<uses-permission android:name="android.permission.GET_TASKS" /> 
+		<!-- ibeancon --> 
+		<uses-permission android:name="android.permission.BLUETOOTH"/> 
+		<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/> 
+		<!-- 3.0 -->  
+		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
+		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
+		<!-- --> 
+		<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/> 
+		<permission android:name="getui.permission.GetuiService"
+			android:protectionLevel="normal" > 
+		</permission>
+		<uses-permission android:name="getui.permission.GetuiService." /><!----> 
+		<!-- SDK -->
+
+
+
+
+
+
+
+
+    <!-- 记住这个一要放在application外面，不然会出现配置错误 信息 -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for My App"
+        android:targetPackage="com.exmyth.wechat" />
+
+    <!-- 
+    android:taskAffinity="com.exmyth.wechat"
+     -->
+    <application
+        android:name=".AppContext"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+
+        <!-- 在本应用中导入需要使用的包，放在application里面activity外面 -->
+        <uses-library android:name="android.test.runner" />
+
+		<!-- 
+		android:taskAffinity="task1"
+		 -->
+		 
+        <!-- SDK -->
+		        <meta-data
+		            android:name="PUSH_APPID"
+		            android:value="IWH8pnVg3m6zzXiJoP3Dz3" />
+		 <!-- APPID -->
+		        <meta-data
+		            android:name="PUSH_APPKEY"
+		            android:value="yGf22BCQm08qsDoVXvsUC6" />
+		 <!-- APPKEY -->
+		        <meta-data
+		            android:name="PUSH_APPSECRET"
+		            android:value="oxFn7Q3mXxALx9ZINRvNm7" />
+		 <!-- APPSECRET -->
+	        <!-- SDK -->
+	        <service
+	            android:name="com.igexin.sdk.PushService"
+	            android:exported="true"
+	            android:label="NotificationCenter"
+	            android:process=":pushservice" />
+	        <service
+	            android:name="com.igexin.sdk.PushServiceUser"
+	            android:exported="true"
+	            android:label="NotificationCenterUser" />
+	
+	        <receiver android:name="com.igexin.sdk.PushReceiver" >
+	            <intent-filter>
+	                <action android:name="android.intent.action.BOOT_COMPLETED" />
+	                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+	                <action android:name="android.intent.action.USER_PRESENT" />
+	                <action android:name="com.igexin.sdk.action.refreshls" />
+	                <!-- actionservice -->
+	                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+	                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+	                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+	            </intent-filter>
+	        </receiver>
+	        <receiver
+	            android:name="com.igexin.sdk.PushManagerReceiver"
+	            android:exported="false" >
+	            <intent-filter>
+	                <action android:name="com.igexin.sdk.action.pushmanager" />
+	            </intent-filter>
+	        </receiver>
+	
+	        <activity
+	            android:name="com.igexin.sdk.PushActivity"
+	            android:excludeFromRecents="true"
+	            android:exported="false"
+	            android:process=":pushservice"
+	            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+	            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+	        <activity
+	            android:name="com.igexin.sdk.GActivity"
+	            android:excludeFromRecents="true"
+	            android:exported="true"
+	            android:process=":pushservice"
+	            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+	            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+	
+	        <service
+	            android:name="com.igexin.download.DownloadService"
+	            android:process=":pushservice" />
+	
+	        <receiver android:name="com.igexin.download.DownloadReceiver" >
+	            <intent-filter>
+	                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+	            </intent-filter>
+	        </receiver>
+	
+	        <provider
+	            android:name="com.igexin.download.DownloadProvider"
+	            android:authorities="downloads."
+	            android:exported="true"
+	            android:process=":pushservice" />
+	        <activity
+	            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
+	            android:configChanges="orientation|keyboard|keyboardHidden"
+	            android:excludeFromRecents="true"
+	            android:process=":pushservice"
+	            android:taskAffinity="android.task.myServicetask"
+	            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+	            android:exported="false" />
+	
+	        <receiver
+	            android:name="com.igexin.getuiext.service.PayloadReceiver"
+	            android:exported="false" >
+	            <intent-filter>
+	                <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
+	                <action android:name="com.igexin.sdk.action.APPID" />
+	 <!-- APPID -->
+	            </intent-filter>
+	        </receiver>
+	
+	        <service
+	            android:name="com.igexin.getuiext.service.GetuiExtService"
+	            android:process=":pushservice" />
+        <!-- SDK -->
+
+
+        <activity
+            android:name=".popup.activity.MainActivity"
+            android:label="@string/title_activity_main"
+             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".launch.activity.CustomActivity"></activity>
+        <activity android:name=".launch.activity.ProgressAcitivty"></activity>
+    </application>
+
+</manifest>

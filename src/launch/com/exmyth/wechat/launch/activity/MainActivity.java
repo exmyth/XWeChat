@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.notification_main);
 		initView();
 		initNotify();
 	}
