@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TextView android:layout_width="fill_parent" android:id="@+id/tv_hello"
+		android:layout_height="wrap_content" android:text="@string/hello" />
+
+	<TextView android:layout_width="fill_parent" android:id="@+id/tv_scroll"
+	    android:layout_below="@id/tv_hello" android:layout_marginLeft="20dip"
+		android:layout_height="wrap_content"
+		android:text="从前有个人钓鱼，钓到了只鱿鱼。 
+                            鱿鱼求他：你放了我吧，别把我烤来吃啊。 
+                         那个人说：好的，那么我来考问你几个问题吧。 
+                        鱿鱼很开心说：你考吧你考吧！ 
+                       然后这人就把鱿鱼给烤了.. " />
+
+
+	<Button android:id="@+id/bt_scrollLeft"
+		android:layout_alignParentBottom="true" android:layout_width="200dip"
+		android:layout_height="wrap_content" android:text="scrollLeft" />
+
+	<Button android:id="@+id/bt_scrollRight" android:layout_width="200dip"
+		android:layout_toRightOf="@id/bt_scrollLeft"
+		android:layout_alignParentBottom="true" android:layout_height="wrap_content"
+		android:text="scrollRight" />
+</RelativeLayout>

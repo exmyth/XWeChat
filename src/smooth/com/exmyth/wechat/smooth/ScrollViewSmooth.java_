@@ -1,0 +1,45 @@
+package com.exmyth.wechat.smooth;
+
+import com.exmyth.wechat.R;
+
+import android.graphics.Color;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class ScrollViewSmooth {
+	private void searchResultShow() {
+		TextView textView = new TextView(AFSearchActivity.this);
+		textView.setText("Text View ");
+		LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		textView.setPadding(30, 15, 0, 15);
+		textView.setTextSize(30);
+		textView.setTextColor(Color.WHITE);
+		// 增加一个TextView到线性布局中
+		layout.addView(textView, p);
+
+		ImageView imageView = new ImageView(AFSearchActivity.this);
+		imageView.setImageResource(R.drawable.im_dottend_line);
+
+		// 增加一个ImageView到线性布局中
+		layout.addView(imageView, p);
+		if (sName == null || sName.equals("")) {
+			textView.setText("-");
+		} else {
+			textView.setText(sName);
+			sName = "";
+			mHandler.post(mScrollToBottom);
+		}
+	}
+
+	private Runnable mScrollToBottom = new Runnable() {
+		@Override
+		public void run() {
+			int off = layout.getMeasuredHeight() - nameScroll.getHeight();
+			if (off > 0) {
+				nameScroll.scrollTo(0, off);
+			}
+		}
+	};
+}

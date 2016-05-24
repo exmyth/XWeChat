@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TextView android:layout_width="fill_parent" android:id="@+id/tv_hello"
+		android:layout_height="wrap_content" android:text="@string/hello" />
+
+	<com.exmyth.wechat.scrollerview.MultiViewGroup
+		android:id="@+id/mymultiViewGroup" android:layout_below="@id/tv_hello"
+		android:layout_height="wrap_content" android:layout_width="wrap_content">
+	</com.exmyth.wechat.scrollerview.MultiViewGroup>
+	<Button android:id="@+id/bt_scrollLeft"
+		android:layout_alignParentBottom="true" android:layout_width="200dip"
+		android:layout_height="wrap_content" android:text="Scroller滑到下一屏" />
+
+	<Button android:id="@+id/bt_scrollRight" android:layout_width="200dip"
+		android:layout_toRightOf="@id/bt_scrollLeft"
+		android:layout_alignParentBottom="true" android:layout_height="wrap_content"
+		android:text="停止滑动" />
+</RelativeLayout>

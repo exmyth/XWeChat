@@ -54,7 +54,7 @@
 		android:taskAffinity="task1"
 		 -->
         <activity
-            android:name=".popup.activity.MainActivity"
+            android:name=".indexable.activity.IndexableListAcitity"
             android:label="@string/title_activity_main"
              >
             <intent-filter>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:multitxt="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="105dp" >
+
+    <com.exmyth.wechat.smooth.view.ObservableScrollView
+        android:id="@+id/fragment_product_detail_entry_combo_scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/fragment_product_detail_entry_combo_enums1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <!--
+                    <TextView
+                        android:id="@+id/fragment_product_detail_entry_combo_txtEnums1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8.75dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="17.5dp"
+                        android:textColor="@color/fragment_product_detail_entry_combo_enums1"
+                        android:textSize="14dp" >
+                    </TextView>
+            -->
+
+            <com.exmyth.wechat.smooth.view.MultiLineTextView
+                android:id="@+id/fragment_product_detail_entry_combo_txtEnums1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:background="@color/white"
+                android:padding="0dp"
+                multitxt:itemHeight="35dp"
+                multitxt:text=""
+                multitxt:textColor="#666666"
+                multitxt:textHOffset="-1dp"
+                multitxt:textSize="14sp" />
+        </LinearLayout>
+    </com.exmyth.wechat.smooth.view.ObservableScrollView>
+
+    <com.exmyth.wechat.smooth.view.ObservableScrollView
+        android:id="@+id/fragment_product_detail_entry_combo_scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="35dp"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <!--
+                android:divider="@drawable/divider_middle"
+                android:showDividers="beginning|middle|end"
+        -->
+
+        <LinearLayout
+            android:id="@+id/fragment_product_detail_entry_combo_enums2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0ba7fd"
+            android:orientation="vertical" >
+
+            <!--
+                    <TextView
+                        android:id="@+id/fragment_product_detail_entry_combo_txtEnums2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.5dp"
+                        android:background="#0ba7fdbg"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="15dp"
+                        android:textColor="#0ba7fd"
+                        android:textSize="16dp" >
+                    </TextView>
+            -->
+
+            <com.exmyth.wechat.smooth.view.MultiLineTextView
+                android:id="@+id/fragment_product_detail_entry_combo_txtEnums2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:background="#f0f9fd"
+                android:padding="0dp"
+                multitxt:itemHeight="35dp"
+                multitxt:text=""
+                multitxt:textColor="#0ba7fd"
+                multitxt:textHOffset="-1dp"
+                multitxt:textSize="16sp" />
+        </LinearLayout>
+    </com.exmyth.wechat.smooth.view.ObservableScrollView>
+
+    <com.exmyth.wechat.smooth.view.ObservableScrollView
+        android:id="@+id/fragment_product_detail_entry_combo_scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/fragment_product_detail_entry_combo_enums3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <!--
+                    <TextView
+                        android:id="@+id/fragment_product_detail_entry_combo_txtEnums3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8.75dp"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="17.5dp"
+                        android:background="@color/transparent"
+                        android:textColor="@color/transparent"
+                        android:textSize="14dp" >
+                    </TextView>
+            -->
+
+            <com.exmyth.wechat.smooth.view.MultiLineTextView
+                android:id="@+id/fragment_product_detail_entry_combo_txtEnums3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                multitxt:itemHeight="35dp"
+                multitxt:text=""
+                multitxt:textColor="@color/red"
+                multitxt:textHOffset="110dp"
+                multitxt:textSize="14sp" />
+        </LinearLayout>
+    </com.exmyth.wechat.smooth.view.ObservableScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="70dp"
+        android:background="@color/divider_middle_color" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="35dp"
+        android:background="@color/divider_middle_color" />
+
+</FrameLayout>

@@ -43,6 +43,9 @@
 	<classpathentry kind="src" path="lib/Volley"/>
 	<classpathentry kind="src" path="src/test"/>
 	<classpathentry kind="src" path="src/handler"/>
+	<classpathentry kind="src" path="src/smooth"/>
+	<classpathentry kind="src" path="src/lyric"/>
+	<classpathentry kind="src" path="src/toast"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
